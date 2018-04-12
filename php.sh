@@ -77,7 +77,6 @@ max_input_nesting_level = 128
 max_input_vars = 2000
 mysqlnd.net_cmd_buffer_size = 16384
 always_populate_raw_post_data=-1
-disable_functions=shell_exec
 END
 
 mkdir -p /var/lib/php/session
