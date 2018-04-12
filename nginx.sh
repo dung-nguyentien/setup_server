@@ -14,6 +14,8 @@ if [[ $server_name == *www* ]]; then
     server_name_alias=${server_name/www./''}
 fi
 
+echo "$(<nginx/web.conf)" > /etc/nginx/conf.d/$server_name.conf
+
 sed -i "s/\$server_name/$server_name/g" /etc/nginx/conf.d/$server_name.conf
 sed -i "s/\$admin_port/$admin_port/g" /etc/nginx/conf.d/$server_name.conf
 sed -i "s/\$server_ip/$server_ip/g" /etc/nginx/conf.d/$server_name.conf
