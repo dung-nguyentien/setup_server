@@ -71,3 +71,18 @@ systemctl enable nginx.service
 systemctl enable php-fpm.service
 systemctl enable mysql.service # Failed to execute operation: No such file or directory
 systemctl enable fail2ban.service
+
+mkdir -p /home/$server_name/public_html
+mkdir /home/$server_name/private_html
+mkdir /home/$server_name/logs
+chmod 777 /home/$server_name/logs
+
+mkdir -p /var/log/nginx
+chown -R nginx:nginx /var/log/nginx
+chown -R nginx:nginx /var/lib/php/session
+
+echo "<?php phpinfo(); ?>" >/home/$server_name/public_html/index.php
+
+systemctl start nginx.service
+systemctl start php-fpm.service
+systemctl start mysql.service
