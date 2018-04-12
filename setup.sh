@@ -5,6 +5,7 @@ yum -y install gawk bc wget lsof
 . prepare.sh
 . php.sh
 . opcache.sh
+. nginx.sh
 . mariadb.sh
 #. change-port.sh
 . chown-server.sh
